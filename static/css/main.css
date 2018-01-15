@@ -1,0 +1,569 @@
+/* 
+    Title font: Montserrat 
+    Heading and body font: Josefin Sans;
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Josefin+Sans:300,400,700');
+
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/** 
+    colors
+    main:   #555        dark grey
+            #BAE4E5     ice blue
+            #fff        white
+            #D95B43     fire orange
+            #E6E1AA     pastel yellow
+**/
+
+/* fall-back background color: dark grey; */
+html, body, footer {
+    background-color: #555;
+}
+
+/* main content: white background, dark grey text */
+#main {
+    background-color: white;
+    color: #333;
+}
+/* accent: ice blue (#BAE4E5) */
+header nav a { color: #BAE4E5; }
+header nav a:hover { color: #9AC4C5; border-bottom: 3px solid;}
+footer #name { color: #BAE4E5; }
+
+/* header and footer: darker ice blue edge border, white text */
+header { border-bottom: 8px solid #9AC4C5; }
+footer { border-top: 8px solid #9AC4C5; }
+header, footer { color: white; }
+
+/* links: fire orange (#D95B43) */
+a { 
+    color: #D95B43;     
+    transition: none 150ms ease-out;
+    transition-property: color;
+}
+a:hover { color: #C93B23; }
+
+/* footer links: pastel yellow (#E6E1AA) */
+footer a { color: #E6E1AA; }
+footer a:hover { color: #BAB57D; }
+
+/* end colors */
+
+
+/** 
+    fonts - setting font families and sizes
+**/
+header #title { font-family: "Montserrat", sans-serif; }
+body, footer { font-family: "Josefin Sans", sans-serif; }
+
+/* CBCGN title - make smaller if on mobile */
+header h1 { font-size: 60pt; font-weight: 700;}
+@media only screen and (max-device-width: 480px) {
+    header h1 { font-size: 50pt; }
+}
+
+/* subtitle: "CHINESE BIBLE CHURCH OF GREATER NASHUA" */
+header #subtitle { 
+    font-size: 10pt;
+    text-transform: uppercase;
+    padding: 0 1em;
+    color: #bbb;
+}
+
+/* adjust navigation menu size */
+header nav a { font-size: 1.2em; }
+
+/* general body font size */
+body { font-size: 12pt; font-weight: 300; }
+
+/* headers */
+#main h1 {
+    font-size: 36pt;
+    font-weight: 700;
+}
+
+#main h2 { font-size: 28pt; }
+
+/* bold table headers */
+th { font-weight: 700; }
+
+/* end fonts */
+
+
+/**
+    content - alignment and padding
+**/
+
+/* 
+    #main - holds all info
+    
+    align content and fill screen 
+*/
+#main { 
+    margin: 0 auto; 
+    width: 100%; 
+}
+
+/* #center - center and ensure content doesn't go past a certain width */
+#center {
+    max-width: 67em;
+    margin: 0 auto;
+    padding-bottom: 2em;
+}
+
+/* bootstrap container fill width */
+.container { width: 100%; }
+
+/* .block is the default way of displaying a section */
+.block { 
+    width: 100%; 
+    padding: 1em 2em; 
+}
+/* readjusting padding for mobile */
+@media only screen and (max-device-width: 480px) {
+    .block { padding: 1.4em; }
+}
+
+/* half block for the "Join Us", "Find Us" section*/
+.half-block { padding: 1em 3em; height: 100%; }
+
+/* for heading images at the top of each page */
+.head-img { padding: 0; }
+
+/* dividers */
+hr {
+    width: 75%;
+    margin: 1em auto;
+}
+
+/* images fill container */
+img { max-width: 100%;}
+
+/* end content*/
+
+
+/** 
+    header 
+**/
+
+/* church image as header (from css tricks) */
+header {
+    background: linear-gradient( rgba(64, 64, 64, 0.9), rgba(64, 64, 64, 0.9)), url("../img/church.jpg");
+    /*background-position: center;*/
+    background-repeat: no-repeat; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* a little trick to only have the white lines appear in index.css */
+header hr, footer hr { display: none }
+
+header { text-align: center; }
+header .logo { max-width: 5em; padding-top: 1.5em;}
+
+#title { padding-bottom: 2em; }
+
+header nav a { 
+    transition: none 150ms ease-out;
+    transition-property: color, border-bottom;
+}
+header nav a:hover { text-decoration: none; }
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* horizontal nav bar */
+header nav ul li {
+    display: inline-block;;
+    text-transform: lowercase;
+    padding: 0.5em 1.2em;
+}
+
+/* end header */
+
+/**
+    head image
+**/
+.head {
+/*    background: linear-gradient( rgba(96, 96, 96, 0.6), rgba(96, 96, 96, 0.6)), url("{% static 'img/youth.jpg' %}");
+    background-repeat: no-repeat; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+
+    color: white;
+
+    padding: 3em;
+}
+
+.head h1, .head p {
+    text-align: center;
+}
+/* end head*/
+
+/**
+    footer
+**/
+
+footer {
+    text-align: center;
+    padding: 2.5em;
+    text-transform: lowercase;
+}
+
+footer .logo { max-width: 3em; padding-bottom: 1em; }
+
+/* home page */
+.caption { padding-top: 1em; text-align: center; }
+
+.event {
+    margin: 0 auto;
+    /*max-width: 90%;*/
+}
+
+.event iframe { 
+    max-width: 100%;
+}
+.event .text { padding: 1em 1em; }
+@media only screen and (max-device-width: 480px) {
+    .event .text { padding: 1em 0; }
+}
+
+.event .video { padding: 0; padding-top: 2em; }
+
+#values h1 { padding-bottom: 0.5em; }
+.value { text-align: center; }
+#values i { padding-bottom: 0.5em; }
+
+#values .fa-microphone, #values .fa-globe { 
+    color: #2A8FBD; 
+    transition: none 200ms ease-out;
+    transition-property: color, background;}
+#values .fa-microphone:hover, #values .fa-globe:hover { color: #0A6F9D; }
+
+#values .fa-book, #values .fa-heart { 
+    color: #FF6B6B;
+    transition: none 200ms ease-out;
+    transition-property: color, background;
+}
+#values .fa-book:hover, #values .fa-heart:hover { color: #DF4B4B; }
+
+#find-us { padding: 1em 0; }
+#find-us p { margin: 0; }
+
+#find-us iframe {
+    padding-top: 1em;
+    width: 100%;
+    max-height: 20em;
+}
+
+/* slideshow */
+* { box-sizing: border-box; }
+
+#events {
+    position: relative;
+    margin: auto;
+}
+
+.event {
+    display: none;
+}
+
+/* next + previous buttons */
+#buttons {
+    padding-top: 0.5em;
+    font-size: 24pt;
+    text-align: center;
+}
+
+a.prev, a.next {
+    cursor:pointer;
+    margin: 1em;
+    text-decoration: none;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* 1 */
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    clip-path: none;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+    white-space: inherit;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

@@ -1,0 +1,89 @@
+{% load staticfiles %}
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>
+            {% block title %}Chinese Bible Church of Greater Nashua{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <!-- <link rel="apple-touch-icon" href="icon.png"> -->
+        <!-- Place favicon.ico in the root directory -->
+
+        <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+        <!-- Bootstrap CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        {% block xcss %}{% endblock %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <style>
+            {% block style %}{% endblock %}
+            .head {
+                background: linear-gradient( rgba(96, 96, 96, 0.6), rgba(96, 96, 96, 0.6)), url("{% block head-img %}{% endblock %}");
+                background-repeat: no-repeat; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <header>
+            <div id="title">
+                <img class="logo" src="{% static 'img/dove-ice.png' %}" alt="dove">
+                <h1>CBCGN</h1>
+                <span id="subtitle">Chinese Bible Church of Greater Nashua</span>
+            </div>
+            <div id="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'sermons' %}">Sermons</a></li>
+                        <li><a href="{% url 'youth' %}">Youth</a></li>
+                        <li><a href="http://cbcgnchildren.blogspot.com/">Children</a></li>                     
+                    </ul>
+                </nav>
+            </div>
+            <hr>
+        </header>
+
+        <!-- Main content (white body) -->
+        <div id="main">
+            <!-- Centers all content and maintains margins -->
+            <div id="center">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <footer>
+            <hr>
+            <img class="logo" src="{% static 'img/dove.png' %}" alt="dove">
+            <p id="name">© CBCGN 2017</p>
+            </div>
+        </footer>
+
+        <script src="https://use.fontawesome.com/41e95c1301.js"></script>
+        <!-- <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script> -->
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}">"></script>
+        <script type="text/javascript"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    </body>
+</html>

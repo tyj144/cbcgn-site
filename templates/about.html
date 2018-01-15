@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+	About - {{ block.super }}
+{% endblock %}
+
+{% block style %}
+    
+    p.subtitle { color: #777; }
+    
+    #heading { padding: 0; padding-left: 2em; }
+    
+    @media only screen and (max-device-width: 480px) {
+        #values h1 {
+            text-align: center;
+        }
+    }
+
+    p#romans10 {
+        font-size: 16pt;
+    }
+    
+    #credits { text-align: center; }
+{% endblock %}
+
+{% block content %}
+<div class="block head-img" id="church">
+    <img src="{% static 'img/church.jpg' %}" alt="CBCGN">
+</div>
+
+<div id="values" class="block container">
+    <h1>Our Values</h1>
+    <div class="value col-sm-3">
+        <i class="fa fa-microphone fa-4x" aria-hidden="true"></i>
+        <p>To Worship</p>
+    </div>
+    <div class="value col-sm-3">
+        <i class="fa fa-globe fa-4x" aria-hidden="true"></i>
+        <p>To Spread the Gospel</p>
+    </div>
+    <div class="value col-sm-3">
+        <i class="fa fa-book fa-4x" aria-hidden="true"></i>
+        <p>To Read and Pray</p>
+    </div>
+    <div class="value col-sm-3">
+        <i class="fa fa-heart fa-4x" aria-hidden="true"></i>
+        <p>To Love One Another</p>
+    </div>
+</div>
+
+<hr>
+
+<div id="beliefs" class="block">
+        <h1>Our Beliefs</h1>
+        <p id="romans10">If you declare with your mouth, <b>“Jesus is Lord,”</b> and believe in your heart that God raised him from the dead, you will be saved. For it is with your heart that you believe and are justified, and it is with your mouth that you profess your faith and are saved.</p>
+        <p style="color: #777;">Romans 10:9-10</p>
+        <br>
+        <ul>
+            <li>We believe that both the Old and New Testaments of the Bible are complete and reliable, inspired by God, and that they are the highest authority and rule of our lives.</li>
+            <li>We believe in the Father, the Son, and the Holy Spirit, and that God is the creator of all things and the one true God.</li>
+            <li>We believe that Jesus is the only begotten Son of God, born of the Holy Spirit, and born of the Virgin Mary.</li>
+            <li>We believe that Jesus was crucified for our sins, that he died and resurrected three days after, that he ascended to heaven and sat on the right side of the throne of the highest.</li>
+        </ul>
+</div>
+
+<hr>
+
+<div id="staff">
+    <div id="heading" class="block">
+        <h1>Staff</h1>
+    </div>
+    <div id="minister" class="person block container">
+        <div class="person-img col-sm-4">
+            <img src="{% static 'img/person-filler.png' %}" alt="person-filler">
+        </div>
+
+        <div class="person-about col-sm-8">
+            <h2>Hangguang Zhao (​赵汉光​​​​​​​​​)</h2>
+            <p class="subtitle">Minister</p>
+            <p>Lorem ipsum dolor sit amet, ne regione integre voluptatum mea, nulla expetenda sed ad. Est eros mandamus signiferumque no, ne elitr perfecto aliquando sea. Eripuit repudiandae in mei, docendi albucius appetere ei his. Sonet everti convenire ut vim, clita neglegentur mediocritatem ad qui.</p>
+        </div>
+    </div>
+
+    <div id="elder1" class="person block container">
+        <div class="person-img col-sm-4 col-sm-push-8">
+            <img src="{% static 'img/person-filler.png' %}" alt="person-filler">
+        </div>
+
+        <div class="person-about col-sm-8 col-sm-pull-4">
+            <h2>Yichong Yang (​杨一冲​​)</h2>
+            <p class="subtitle">Elder</p>
+            <p>Lorem ipsum dolor sit amet, ne regione integre voluptatum mea, nulla expetenda sed ad. Est eros mandamus signiferumque no, ne elitr perfecto aliquando sea. Eripuit repudiandae in mei, docendi albucius appetere ei his. Sonet everti convenire ut vim, clita neglegentur mediocritatem ad qui.</p>
+        </div>
+    </div>
+
+    <div id="elder2" class="person block container">
+        <div class="person-img col-sm-4">
+            <img src="{% static 'img/person-filler.png' %}" alt="person-filler">
+        </div>
+
+        <div class="person-about col-sm-8">
+            <h2>Arnold Cheng (​郑安儿)</h2>
+            <p class="subtitle">Elder</p>
+            <p>Lorem ipsum dolor sit amet, ne regione integre voluptatum mea, nulla expetenda sed ad. Est eros mandamus signiferumque no, ne elitr perfecto aliquando sea. Eripuit repudiandae in mei, docendi albucius appetere ei his. Sonet everti convenire ut vim, clita neglegentur mediocritatem ad qui.</p>
+        </div>
+    </div>
+    
+    <div id="youth-minister" class="person block container">
+        <div class="person-img col-sm-4 col-sm-push-8">
+            <img src="{% static 'img/person-filler.png' %}" alt="person-filler">
+        </div>
+
+        <div class="person-about col-sm-8 col-sm-pull-4">
+            <h2>Patrick MacDonald</h2>
+            <p class="subtitle">Youth Minister</p>
+            <p>Lorem ipsum dolor sit amet, ne regione integre voluptatum mea, nulla expetenda sed ad. Est eros mandamus signiferumque no, ne elitr perfecto aliquando sea. Eripuit repudiandae in mei, docendi albucius appetere ei his. Sonet everti convenire ut vim, clita neglegentur mediocritatem ad qui.</p>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div id="credits" class="block">
+    <h1>Credits</h1>
+    <p>
+        Site designed by Tyler Jiang.<br>
+    </p>
+    <p>
+        Icons by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">flaticon</a>
+    </p>
+</div>
+{% endblock %}

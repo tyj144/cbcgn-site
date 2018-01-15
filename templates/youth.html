@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+	Youth - {{ block.super }}
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block head-img %}{% static 'img/youth.JPG' %}{% endblock %}
+
+{% block content %}
+<div id="youth">
+	<div id="updates" class="block">
+		<div class="head">
+			<h1>Youth</h1>
+			<p>Stay up to date with the latest youth group news.</p>
+		</div>
+		{% for post in posts %}
+		<div class="block">
+			<h3 style="font-size:17pt">{{ post.title }}</h3>
+			<p>by {{ post.author_detail.name }}</p>
+			<p>{{ post.published }}</p>
+			<p>
+				{{ post.summary }}
+				{% if post.summary|length > 280 %}
+				...
+				{% endif %}
+			</p>
+			<a class="btn btn-primary" href="{{ post.link }}"><i class="fa fa-book" aria-hidden="true"></i> Read More</a>
+		</div>
+		<hr>
+		{% endfor %}
+
+	</div>
+</div>
+{% endblock %}	

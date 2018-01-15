@@ -1,0 +1,50 @@
+/*
+    The home page has a different background & layout than the rest of the site.
+*/
+
+/* remove old bottom border from main.css  */
+header, footer { 
+    background: none; 
+    border: none;
+}
+
+/* moved to <style> in index.html to avoid relative path */
+/*body {
+    background: linear-gradient( rgba(64, 64, 64, 0.9), rgba(64, 64, 64, 0.9)), url("../img/church.jpg");
+    background-position: center;
+    background-repeat: no-repeat; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}*/
+
+body {
+    background-color: #555;
+    height: 100%;
+}
+
+#title { padding-bottom: 0.5em; }
+
+header hr, footer hr { display: block; }
+
+#main { 
+	background: none; 
+	color: white;
+
+	max-width: 90%;
+
+	color: #ddd;
+	padding-top: 2em;
+}
+
+#main h1, #main h2, #main h3 { color: white; }
+
+#center { padding-bottom: 0; }
+
+a { color: #E96B53; }
+a:hover { color: #D94B33; text-decoration: none; }
+
+footer {
+	padding: 1em;
+}

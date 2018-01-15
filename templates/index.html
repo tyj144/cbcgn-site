@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load extras %}
+{% load embed_video_tags %}
+
+{% block xcss %}<link rel="stylesheet" href="{% static 'css/index.css' %}">{% endblock %}
+
+{% block style %}
+
+    body {
+        background: linear-gradient( rgba(64, 64, 64, 0.9), rgba(64, 64, 64, 0.9)), url("{% static 'img/church.jpg' %}");
+        background-position: center;
+        background-repeat: no-repeat; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    #welcome { text-align: center; }
+
+    #welcome h1 { font-size: 54pt; }
+
+{% endblock %}
+
+
+{% block content %}
+<div id="welcome">
+    <h1>Welcome!</h1>
+    {% if events %}
+    <p>Here are a few things we've been up to:</p>
+    {% endif %}
+</div>
+
+{% if events %}
+        <div id="events"> 
+            {% for event in events %}
+            <div class="event container" id="{{ event.slug }}">
+                <div class="text col-md-6
+                    {% if forloop.counter|divisibleby:2 %}
+                        col-md-push-6
+                    {% else %}
+                    {% endif %}">
+                    <h1>{{ event.title }}</h1>
+                    <p class="date">
+                        {% if event.start_date|is_in_future %}
+                        <b>Upcoming</b>:
+                        {% else %}
+                        {% endif %}
+
+                        {{ event.start_date|date:"F jS" }}
+
+                        {% if event.end_date %}
+                            - {{ event.end_date|date:"F jS" }}
+                        {% else %}
+                        {% endif %}
+                    </p>
+                    <!-- linebreaks allows multiple paragraphs -->
+                    <p class="description">{{ event.description|linebreaks }}</p>
+                </div>
+                {% if event.video %}
+                <div class="video col-md-6
+                    {% if forloop.counter|divisibleby:2 %}
+                        col-md-pull-6
+                    {% else %}
+                    {% endif %}">
+                    {% video event.video '480 x 270' %}
+                </div>
+                {% else %}
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div id="buttons">
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+        </div>
+    <hr>
+    {% else %}
+{% endif %}
+
+<div id="find-join" class="container block">
+    <div id="join-us" class="col-sm-6">
+        <h1>Join Us</h1>
+        <tr><th>Sunday</th></tr>
+        <table class="schedule table table-condensed">
+            <tr>
+                <th class="col-md-4">9:45 AM - 11:15 AM</th>
+                <td>Sunday Service / Youth and Children Sermons</td>
+            </tr>
+            <tr>
+                <th class="col-md-4">11:30 AM - 12:30 PM</th>
+                <td>Sunday School</td>
+            </tr>
+            <tr>
+                <th class="col-md-4">12:30 PM - 1:30 PM</th>
+                <td>Lunch</td>
+            </tr>
+        </table>
+
+        <tr><th>Wednesday</th></tr>
+        <table class="schedule table">
+            <tr>
+                <th class="col-md-4">8:00 PM - 9:30 PM</th>
+                <td>Prayer Meeting</td>
+            </tr>
+        </table>
+
+        <tr><th>Friday</th></tr>
+        <table class="schedule table">
+            <tr>
+                <th class="col-md-4">8:00 PM - 9:30 PM</th>
+                <td>Bible Study / Youth Group</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="find-us" class="col-sm-6">
+        <h1>Find Us</h1>
+        <p class="address">45 Pine Hill Road</p>
+        <p class="address">Nashua, NH 03063-2307​</p>
+        <p id="phone">(603) 889-9119</p>
+        <p id="email"><a href="mailto:cbcgnchurchoffice@gmail.com">cbcgnchurchoffice@gmail.com</a></p>
+        <iframe src="https://www.google.com/maps/embed?pb=%211m14%211m8%211m3%211d2928.696573198778%212d-71.4962268%213d42.773621999999996%213m2%211i1024%212i768%214f13.1%213m3%211m2%211s0x89e3b6db8958d669:0x51c54316891a64fd%212s45+Pine+Hill+Rd%2c+Nashua%2c+NH+03063%215e0%213m2%211sen%212sus%214v1422243719861" width="600" height="450" frameborder="0" style="border:0px;"></iframe>
+    </div>
+</div>
+{% endblock %}  

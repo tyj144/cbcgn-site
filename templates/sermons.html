@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+	Sermons - {{ block.super }}
+{% endblock %}
+
+{% block style %}
+    
+    .sermon {
+        width: 70%;
+        max-width: 40em;
+        margin: 0 auto;
+        padding: 1em 0;
+    }
+
+    .sermon h2 { font-size: 36pt; font-weight: 700; }
+    .sermon p { font-size: 14pt; }
+
+.date { width: 11%; }
+.title { width: 27%; }
+.speaker { width: 22%; }
+.listen { width: 40%; }
+.table { max-width: 100%; }
+
+th, td {
+	font-size: 14pt;	
+}
+
+{% endblock %}
+
+{% block head-img %}{% static 'img/christmas.jpg' %}{% endblock %}
+
+{% block content %}
+
+	<div id="sermons" class="block">
+		<div class="head">
+			<h1 style="text-align: center;">Sermons</h1>
+			<p>Take a listen to our sermons.</p>
+		</div>	
+		<h1>Most Recent</h1>
+		<div class="sermon" class="block">
+		    <h2>{{ recent_sermon.title }}</h2>
+		    <p>{{ recent_sermon.speaker }} - {{ recent_sermon.date|date:"SHORT_DATE_FORMAT" }}</p>
+		    <audio style="width: 100%" controls><source src="{{ recent_sermon.url }}"></audio>
+		</div>
+
+	    <h1>Past Sermons</h1>
+	    <!-- {% for sermon in sermons %}
+	    <div class="sermon" class="block">
+		    <h2>{{ sermon.title }}</h2>
+		    <p>{{ sermon.speaker }} - {{ sermon.date|date:"SHORT_DATE_FORMAT" }}</p>
+		    <audio style="width: 100%" controls><source src="{{ sermon.url }}"></audio>
+		</div>
+		{% endfor %} -->
+	    <table class="table">
+	        <tr>
+	            <th class="date col-md-1">Date</th>
+	            <th class="title col-md-3">Title</th>
+	            <th class="speaker col-md-3">Speaker</th>
+	            <th class="listen col-md-4">Listen</th>
+	        </tr>
+
+	        {% for sermon in sermons %}
+			<tr>
+				<td class="date">{{ sermon.date|date:"SHORT_DATE_FORMAT" }}</td>
+				<td class="title"><a href="{{ sermon.url }}">{{ sermon.title }}</a></td>
+				<td class="speaker">{{ sermon.speaker }}</td>
+				<td class="listen"><audio style="width: 100%" controls><source src="{{ sermon.url }}"></audio></td>
+			</tr>
+	        {% endfor %}
+	    </table>
+	</div>
+{% endblock %}
