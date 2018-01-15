@@ -3,6 +3,8 @@ Redesigned the front end and back end of a church website from scratch.
 
 Check it out at: https://cbcgn.herokuapp.com
 
+The content available here is the Django app, not the full site.
+
 # Features
 * Redesigned a church’s website, designed the frontend and backend using Django, a Python web framework
 * Implemented a database for upcoming events and sermons in PostgreSQL
